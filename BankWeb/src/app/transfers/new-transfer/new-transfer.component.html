@@ -1,0 +1,21 @@
+
+<form [formGroup]="form" (submit)="onSubmit(form.value)">
+    <mat-card-header>
+        <mat-card-title>Nowy przelew</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+            <mat-form-field>
+            <input matInput placeholder="Numer konta odbiorcy" formControlName="receiver_id" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Imię i nazwisko odbiorcy" formControlName="receiver_full_name" type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Kwota" formControlName="amount" type="text">
+        </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button type="submit" mat-raised-button color="primary">Wyślij przelew</button>
+    </mat-card-actions>
+</form>

@@ -1,0 +1,53 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <div class="title">
+                Historia transakcji       
+            </div>
+            <div class="search">
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Szukaj">
+                </mat-form-field>
+            </div>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-table [dataSource]="transfers">
+            <ng-container matColumnDef="number">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Numer przelewu</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="sender_id">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Numer nadawcy</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.sender_id}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="sender_full_name">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Imię i nazwisko nadawcy</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.sender_full_name}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="receiver_id">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Numer odbiorcy</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.receiver_id}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="receiver_full_name">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Imię i nazwisko odbiorcy</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.receiver_full_name}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Ilość</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.amount}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="currency">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Waluta</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.currency}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef style="width: 10%;">Data</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.date}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+    </mat-card-content>
+</mat-card>
+
